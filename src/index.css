@@ -187,34 +187,3 @@ template {
 [hidden] {
     display: none;
 }
-:root{
-    --main-black: #4E4E4E;
-    --bottom: #E05F5F;
-    --active: #CBCBCB;
-}
-
-h2 {
-    font-size: 36px;
-    font-weight: 500;
-    color: var(--main-black);
-    text-align: center;
-    margin-bottom: 35px;
-    margin-top: 0;
-}
-
-p {
-    font-size: 24px;
-    font-weight: normal;
-    color: var(--main-black);
-    text-align: left;
-    margin: 0 0 20px;
-}
-
-.star {
-    color: #ff0000;
-    font-size: 24px;
-    font-family: Inter, sans-serif;
-}
-input, textarea {
-    scroll-margin-top: 200px;
-}
