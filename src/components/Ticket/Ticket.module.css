@@ -1,0 +1,31 @@
+.ticket {
+    position: relative;
+    max-width: 296px;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 3px;
+    min-height: 372px;
+}
+.magicWand {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+.showResult {
+    display: block;
+    cursor: pointer;
+    margin: 20px auto 0;
+    border: 1px solid #000;
+    border-radius: 40px;
+    width: 178px;
+    height: 43px;
+    background-color: #fff;
+    color: #000000;
+
+}
+
+.showResult:disabled {
+    opacity: 0.5;
+}

@@ -1,38 +1,79 @@
 import { useCallback, useState } from "react"
 import { Field } from "../Field/Field.tsx"
 import { getFieldHandler } from "../../utils/getFieldHandler.ts"
+import { isTicketWon } from "../../utils/isTicketWon.ts"
+import MagicWand from "../../assets/magic-wand.svg?react"
+import { getRandomTicket } from "../../utils/getRandomTicket.ts"
+import s from "./Ticket.module.css"
 
-export const Ticket = () => {
+interface Props {
+  ticketNumber: number
+}
+export const Ticket = ({ ticketNumber }: Props) => {
   const [firstField, setFirstField] = useState<number[]>([])
   const [secondField, setSecondField] = useState<number[]>([])
+  const [gameStage, setGameStage] = useState<"playing" | "lose" | "won">(
+    "playing",
+  )
 
   const firstFieldHandler = useCallback(
-    getFieldHandler(firstField, setFirstField),
+    getFieldHandler(firstField, setFirstField, 8),
     [firstField],
   )
 
   const secondFieldHandler = useCallback(
-    getFieldHandler(secondField, setSecondField),
+    getFieldHandler(secondField, setSecondField, 1),
     [secondField],
   )
 
-  return (
-    <div>
-      <h2>Билет 1</h2>
-      <p>Поле 1 Отметьте 8 чисел.</p>
-      <Field
-        itemsCount={19}
-        activeItems={firstField}
-        itemClickHandler={firstFieldHandler}
-      />
-      <p>Поле 2 Отметьте 1 число.</p>
-      <Field
-        itemsCount={2}
-        activeItems={secondField}
-        itemClickHandler={secondFieldHandler}
-      />
+  const showResult = () => {
+    setGameStage(isTicketWon({ firstField, secondField }) ? "won" : "lose")
+  }
 
-      <button>Показать результат</button>
+  const setRandomTicket = () => {
+    const { firstField, secondField } = getRandomTicket()
+    setFirstField(firstField)
+    setSecondField(secondField)
+  }
+
+  return (
+    <div className={s.ticket}>
+      <div>
+        <h2>Билет {ticketNumber}</h2>
+      </div>
+
+      {gameStage === "lose" ? (
+        <p>Вы проиграли</p>
+      ) : gameStage === "won" ? (
+        <p>Ого, вы выиграли! Поздравляем!</p>
+      ) : (
+        <>
+          <MagicWand onClick={setRandomTicket} className={s.magicWand} />
+          <p>
+            <strong>Поле 1</strong> Отметьте 8 чисел.
+          </p>
+          <Field
+            itemsCount={19}
+            activeItems={firstField}
+            itemClickHandler={firstFieldHandler}
+          />
+          <p>
+            <strong>Поле 2</strong> Отметьте 1 число.
+          </p>
+          <Field
+            itemsCount={2}
+            activeItems={secondField}
+            itemClickHandler={secondFieldHandler}
+          />
+          <button
+            onClick={showResult}
+            disabled={firstField.length !== 8 || secondField.length !== 1}
+            className={s.showResult}
+          >
+            Показать результат
+          </button>
+        </>
+      )}
     </div>
   )
 }

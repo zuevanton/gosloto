@@ -10,7 +10,6 @@ function getRandomNumbers(max = 19, count = 8) {
       result.push(randomNum)
     }
   }
-
   return result
 }
 
