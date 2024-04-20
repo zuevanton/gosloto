@@ -5,6 +5,8 @@ import { isTicketWon } from "../../utils/isTicketWon.ts"
 import MagicWand from "../../assets/magic-wand.svg?react"
 import { getRandomTicket } from "../../utils/getRandomTicket.ts"
 import s from "./Ticket.module.css"
+import { $api } from "../../api"
+import { TicketResponse } from "../../types/Ticket.types.ts"
 
 interface Props {
   ticketNumber: number
@@ -15,6 +17,7 @@ export const Ticket = ({ ticketNumber }: Props) => {
   const [gameStage, setGameStage] = useState<"playing" | "lose" | "won">(
     "playing",
   )
+  const [errorMessage, setErrorMessage] = useState<null | string>(null)
 
   const firstFieldHandler = useCallback(
     getFieldHandler(firstField, setFirstField, 8),
@@ -27,7 +30,18 @@ export const Ticket = ({ ticketNumber }: Props) => {
   )
 
   const showResult = () => {
-    setGameStage(isTicketWon({ firstField, secondField }) ? "won" : "lose")
+    const won = isTicketWon({ firstField, secondField })
+    setGameStage(won ? "won" : "lose")
+    $api
+      .post<TicketResponse>("tickets", {
+        selectedNumber: { firstField, secondField },
+        isTicketWon: won,
+      })
+      .then((res) => {
+        if (res.status !== 201) {
+          setErrorMessage("Не удалось отправить данные на сервер")
+        }
+      })
   }
 
   const setRandomTicket = () => {
@@ -74,6 +88,7 @@ export const Ticket = ({ ticketNumber }: Props) => {
           </button>
         </>
       )}
+      {errorMessage && <p>{errorMessage}</p>}
     </div>
   )
 }

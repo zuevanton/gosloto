@@ -1,0 +1,194 @@
+{
+  "tickets": [
+    {
+      "id": "1386",
+      "selectedNumber": {
+        "firstField": [
+          14,
+          17,
+          19,
+          5,
+          4,
+          2,
+          10,
+          15
+        ],
+        "secondField": [
+          2
+        ]
+      },
+      "isTicketWon": false
+    },
+    {
+      "id": "82b8",
+      "selectedNumber": {
+        "firstField": [
+          17,
+          16,
+          9,
+          19,
+          18,
+          15,
+          3,
+          12
+        ],
+        "secondField": [
+          1
+        ]
+      },
+      "isTicketWon": true
+    },
+    {
+      "id": "5f76",
+      "selectedNumber": {
+        "firstField": [
+          17,
+          12,
+          7,
+          11,
+          15,
+          16,
+          1,
+          6
+        ],
+        "secondField": [
+          1
+        ]
+      },
+      "isTicketWon": true
+    },
+    {
+      "id": "9c47",
+      "selectedNumber": {
+        "firstField": [
+          16,
+          9,
+          10,
+          15,
+          4,
+          17,
+          18,
+          11
+        ],
+        "secondField": [
+          1
+        ]
+      },
+      "isTicketWon": true
+    },
+    {
+      "id": "ea22",
+      "selectedNumber": {
+        "firstField": [
+          12,
+          4,
+          13,
+          18,
+          17,
+          14,
+          9,
+          16
+        ],
+        "secondField": [
+          1
+        ]
+      },
+      "isTicketWon": true
+    },
+    {
+      "id": "1cbe",
+      "selectedNumber": {
+        "firstField": [
+          10,
+          1,
+          16,
+          8,
+          15,
+          17,
+          13,
+          14
+        ],
+        "secondField": [
+          1
+        ]
+      },
+      "isTicketWon": true
+    },
+    {
+      "id": "1fa7",
+      "selectedNumber": {
+        "firstField": [
+          13,
+          6,
+          9,
+          11,
+          17,
+          15,
+          4,
+          10
+        ],
+        "secondField": [
+          2
+        ]
+      },
+      "isTicketWon": false
+    },
+    {
+      "id": "59e4",
+      "selectedNumber": {
+        "firstField": [
+          10,
+          9,
+          15,
+          1,
+          6,
+          2,
+          8,
+          4
+        ],
+        "secondField": [
+          2
+        ]
+      },
+      "isTicketWon": false
+    },
+    {
+      "id": "17cf",
+      "selectedNumber": {
+        "firstField": [
+          9,
+          8,
+          3,
+          19,
+          15,
+          10,
+          12,
+          11
+        ],
+        "secondField": [
+          2
+        ]
+      },
+      "isTicketWon": true
+    },
+    {
+      "id": "0ac3",
+      "selectedNumber": {
+        "firstField": [
+          5,
+          13,
+          9,
+          6,
+          15,
+          2,
+          16,
+          19
+        ],
+        "secondField": [
+          2
+        ]
+      },
+      "isTicketWon": false
+    }
+  ]
+}
